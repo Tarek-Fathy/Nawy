@@ -27,16 +27,12 @@ const appDataSource = new DataSource({
     entities: [Apartments]
 })
 
+const apartmentRepository = appDataSource.getRepository(Apartments);
+
 appDataSource.initialize()
     .then(async() => {
         console.log("Data Source has been initialized!")
-        await appDataSource
-        .createQueryBuilder()
-        .insert()
-        .into(Apartments)
-        .values(dummyApartments)
-    .execute()
-        //apartmentRepository.save(dummyApartments);
+        await apartmentRepository.save(dummyApartments)
     })
     .catch((err) => {
         console.error("Error during Data Source initialization", err)

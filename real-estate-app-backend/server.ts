@@ -2,9 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { DataSource } from 'typeorm';
-import { Apartment } from './models/Apartment';
+import { Apartments } from './models/Apartments';
 import apartmentRoutes from './apartments/apartments.routes';
+import { dummyApartments } from './dummydata/dummydata';
 
+  
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -15,7 +17,6 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-
 const appDataSource = new DataSource({
     type: "mysql",
     host: "localhost",
@@ -23,12 +24,19 @@ const appDataSource = new DataSource({
     username: "test",
     password: "test",
     database: "Nawy_task_tarek",
-    entities: [Apartment]
+    entities: [Apartments]
 })
 
 appDataSource.initialize()
-    .then(() => {
+    .then(async() => {
         console.log("Data Source has been initialized!")
+        await appDataSource
+        .createQueryBuilder()
+        .insert()
+        .into(Apartments)
+        .values(dummyApartments)
+    .execute()
+        //apartmentRepository.save(dummyApartments);
     })
     .catch((err) => {
         console.error("Error during Data Source initialization", err)

@@ -2,7 +2,8 @@
     "compilerOptions": {
       "experimentalDecorators": true,
       "forceConsistentCasingInFileNames": true,
-      "strict": true
+      "strict": true,
+      "strictPropertyInitialization": false
     },
-    "include": ["./models/Apartment.ts"]
+    "include": ["models/Apartments.ts"]
   }

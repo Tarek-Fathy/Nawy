@@ -1,9 +1,9 @@
 import express from 'express';
-import { Apartment } from '../models/Apartment';
+import { Apartments } from '../models/Apartments';
 import  {appDataSource}  from '../server'
 
 const router = express.Router();
-const apartmentRepository = appDataSource.getRepository(Apartment);
+const apartmentRepository = appDataSource.getRepository(Apartments);
 
 router.get('/', async (req, res) => {
   const apartments = await apartmentRepository.find();
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { title, description, address, renting_price, buying_price } = req.body;
-  const apartment = new Apartment();
+  const apartment = new Apartments();
   apartment.title = title;
   apartment.description = description;
   apartment.address = address;

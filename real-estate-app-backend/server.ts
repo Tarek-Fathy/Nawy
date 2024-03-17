@@ -12,10 +12,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/apartments', apartmentRoutes);
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
 
 const appDataSource = new DataSource({
     type: "mysql",
@@ -38,5 +35,9 @@ appDataSource.initialize()
         console.error("Error during Data Source initialization", err)
 })
 
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 export { appDataSource };

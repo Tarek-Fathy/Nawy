@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true
+    },
+    "include": ["./models/Apartment.ts"]
+  }

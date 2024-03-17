@@ -8,11 +8,11 @@ CREATE TABLE apartments (
   title VARCHAR(100) NOT NULL,
   description VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
-  renting_price INT
+  renting_price INT,
   buying_price INT
 );
 /*we create a user and give him privileges on the tassk's database*/
-CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';
+CREATE USER 'test_for_nawy_task'@'localhost' IDENTIFIED BY 'test_for_nawy_task';
 
 GRANT ALL PRIVILEGES ON Nawy_task_tarek TO 'test'@'localhost' WITH GRANT OPTION;
 

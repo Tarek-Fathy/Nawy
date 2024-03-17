@@ -21,8 +21,8 @@ const appDataSource = new DataSource({
     type: "mysql",
     host: "localhost",
     port: 3306,
-    username: "test",
-    password: "test",
+    username: "test_for_nawy_task",
+    password: "test_for_nawy_task",
     database: "Nawy_task_tarek",
     entities: [Apartments]
 })

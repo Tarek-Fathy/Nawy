@@ -1,4 +1,4 @@
-# Use the official Node.js 14 image as the base image
+# Use the official Node.js 16.3.2 image as the base image
 FROM node:16.3.2
 
 # Set the working directory in the container
@@ -10,7 +10,7 @@ COPY package*.json ./
 # Install application dependencies
 RUN npm install
 
-# Copy the rest of the application code to the working directory
+# Copy the application code to the working directory
 COPY . .
 
 # Expose the port on which the application will run
